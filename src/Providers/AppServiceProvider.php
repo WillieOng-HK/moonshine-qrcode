@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MoonShine\Qrcode\Providers;
+namespace Geekstek\Qrcode\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -17,9 +17,8 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'moonshine-qrcode');
 
-
-        $this->publishes([
-            __DIR__ . '/../../public' => public_path('vendor/moonshine-qrcode'),
-        ], ['moonshine-qrcode-assets', 'laravel-assets']);
+        // $this->publishes([
+        //     __DIR__ . '/../../public' => public_path('vendor/moonshine-qrcode'),
+        // ], ['moonshine-qrcode-assets', 'laravel-assets']);
     }
 }

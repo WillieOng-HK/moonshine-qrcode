@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Fields;
+namespace Geekstek\Qrcode\Fields;
 
 use MoonShine\UI\Fields\Image;
 use MoonShine\AssetManager\Css;

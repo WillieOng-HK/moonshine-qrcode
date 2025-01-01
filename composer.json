@@ -32,8 +32,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "MoonShine\\Qrcode\\Tests\\": "tests/",
-            "MoonShine\\Qrcode\\Database\\Factories\\": "database/factories/"
+            "Geekstek\\Qrcode\\Tests\\": "tests/",
+            "Geekstek\\Qrcode\\Database\\Factories\\": "database/factories/"
         }
     },
     "conflict": {
@@ -46,7 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MoonShine\\Qrcode\\Providers\\AppServiceProvider"
+                "Geekstek\\Qrcode\\Providers\\AppServiceProvider"
             ]
         }
     }
