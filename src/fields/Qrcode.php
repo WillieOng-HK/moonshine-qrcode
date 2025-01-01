@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Geekstek\Qrcode\Fields;
 
-use MoonShine\UI\Fields\Image;
+use chillerlan\QRCode\Output\QROutputInterface;
+use chillerlan\QRCode\QRCode as baseQRCode;
+use chillerlan\QRCode\QROptions as baseQROptions;
+use Illuminate\Contracts\Support\Renderable;
 use MoonShine\AssetManager\Css;
 use MoonShine\AssetManager\Js;
-use Illuminate\Contracts\Support\Renderable;
-use MoonShine\UI\Components\Thumbnails;
+use MoonShine\UI\Fields\Image;
+use Geekstek\Qrcode\Components\Thumbnails;
 
 final class Qrcode extends Image
 {
@@ -16,18 +19,20 @@ final class Qrcode extends Image
 
     protected function resolvePreview(): Renderable|string
     {
-        \Debugbar::info($this->toValue());
-        return Thumbnails::make(
-            $this->getFiles()->first(),
-        )->render();
-    }
+        $opts = new baseQROptions([
+            // 'outputType' => QROutputInterface::IMAGICK,
+            // 'imagickFormat' => 'webp',
+            'outputBase64' => true,
+            'version' => 7,
+            'returnResource' => true,
+        ]);
+        $qrcode = (new baseQRCode($opts))->render($this->toValue());
+        // $qrcode->scaleImage(250, 250, true);
 
-    // public function assets(): array
-    // {
-    //     return [
-    //         Css::make('/css/moonshine/quill/quill.snow.css'), // theme
-    //         Js::make('/js/moonshine/quill/quill.js'), // library
-    //         Js::make('/js/moonshine/quill/quill-init.js'), // initialization
-    //     ];
-    // }
+        // \Debugbar::info($qrcode->getImageBlob());
+        return Thumbnails::make(
+            $qrcode,
+        )
+            ->render();
+    }
 }
