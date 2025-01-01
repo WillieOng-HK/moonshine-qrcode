@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MoonShine\\Qrcode\\": "src/"
+            "Geekstek\\Qrcode\\": "src/"
         }
     },
     "autoload-dev": {
