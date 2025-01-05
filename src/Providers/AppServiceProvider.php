@@ -15,7 +15,7 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'moonshine-qrcode');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'moonshine-qrcode');
 
         // $this->publishes([
         //     __DIR__ . '/../../public' => public_path('vendor/moonshine-qrcode'),
