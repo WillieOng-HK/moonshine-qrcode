@@ -1,5 +1,5 @@
 {
-    "name": "moonshine/qrcode",
+    "name": "willieong-hk/qrcode",
     "description": "Qrcode for MoonShine",
     "keywords": ["moonshine", "qrcode"],
     "type": "library",
